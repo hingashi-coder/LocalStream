@@ -3,7 +3,6 @@ services:
   web:
     image: hingashicoder/intra_stream_server
     volumes:
-     - ./templates:/etc/nginx/templates
      - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ./client:/var/www/html/viewer
     cap_add:
