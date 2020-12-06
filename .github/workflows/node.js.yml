@@ -24,11 +24,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i
-    - run: npm run build
+    - run: |
+          npm i
+          cd clientsrc
+          npm run build
+          cp clientsrc ./client
     - name: Zip output
       run: |
-        zip -r release dist
+        cd ../
+        zip -r ./ dist
     - name: Create release
       id: create_release
       uses: actions/create-release@v1.0.0
